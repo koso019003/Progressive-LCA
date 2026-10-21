@@ -1,0 +1,37 @@
+{
+  "train_config": {
+    "pre_trained_model": "m-a-p/MERT-v1-95M",
+    "memory_fraction": 0.85,
+    "min_epochs": 5,
+    "nb_epochs": 300,
+    "early_stop": 20,
+    "batch_size": 16,
+    "random_seed": 0,
+    "learning_rate": 0.0001,
+    "test": true
+  },
+  "model_config": {
+    "progressive_layers": 3,
+    "representation_dim": 32,
+    "cf_dropout": 0.6,
+    "main_dropout": 0.3,
+    "time_dropout": 0.0,
+    "mose_cf": 1,
+    "intermediate_act": "gelu",
+    "loss_weights": {
+      "y_pred": 0.7,
+      "y_effect": 1.0,
+      "y_cf": 0.6,
+      "y_cf_entropy": 2.0,
+      "y_entropy": 1.5,
+      "att_loss": 2.0
+    }
+  },
+  "data_config": {
+    "dataset": "gtzan",
+    "slice_length": 10,
+    "seconds_overlap": 1,
+    "nb_classes": 10,
+    "datasplit": "songs"
+  }
+}
